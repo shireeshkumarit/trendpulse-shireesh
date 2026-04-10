@@ -57,3 +57,14 @@ for id in top_stories_500:
   # print(stories_by_category)
   
 # print(json.dumps(stories_by_category, indent=2))
+
+# Create a data folder
+os.makedirs("data", exist_ok=True)
+
+filename = f"data/trends_{datetime.now().strftime('%Y%m%d')}.json"
+
+with open(filename, "w") as f:
+  json.dump(stories_by_category, f, indent=4)
+
+print(f"Collected {len(stories_by_category)} stories. Saved to {filename}")
+
